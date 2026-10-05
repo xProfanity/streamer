@@ -21,7 +21,7 @@ export const auth = betterAuth({
         }
     },
     account: {
-        skipStateCookieCheck: true
+        skipStateCookieCheck: process.env.NODE_ENV === "production"
     }
 });
 

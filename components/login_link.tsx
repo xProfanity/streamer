@@ -4,7 +4,7 @@ import React from "react"
 
 interface Props {
     handleLogin: () => void
-    text: React<ReactNode>
+    text: React.ReactNode
 }
 
 export default function TextButton({handleLogin, children}: Props) {

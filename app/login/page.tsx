@@ -11,7 +11,7 @@ export default function Login() {
             provider: "google",
             errorCallbackURL: "/login/error",
             newUserCallbackURL: "/login/welcome",
-            callBackURL: "/"
+            callbackURL: "/"
         })
 
         console.log("data", data)
