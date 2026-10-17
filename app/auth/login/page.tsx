@@ -9,8 +9,7 @@ export default function Login() {
         "use server"
         const {data, error} = await signIn.social({
             provider: "google",
-            errorCallbackURL: "/login/error",
-            newUserCallbackURL: "/login/welcome",
+            errorCallbackURL: "/auth/error",
             callbackURL: "/"
         })
 
@@ -18,7 +17,6 @@ export default function Login() {
         console.log("error", error)
 
         redirect(data.url)
-
     }
 
     return (

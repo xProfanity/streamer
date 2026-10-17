@@ -16,13 +16,27 @@ export const auth = betterAuth({
     }),
     socialProviders: {
         google: {
+            prompt: "select_account",
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CAN_SUGMA_DIG
         }
     },
+    user: {
+        modelName: "users",
+
+        additionalFields: {
+            username: {
+                type: "string",
+                required: false,
+                unique: true,
+                input: true,
+            },
+        },
+    },
     account: {
-        skipStateCookieCheck: process.env.NODE_ENV === "production"
+        skipStateCookieCheck: true,
+        storeStateStrategy: "database"
     }
 });
 
-export const {signIn, signOut} = createAuthClient()
+export const {signIn, signOut, useSession, getSession} = createAuthClient()
